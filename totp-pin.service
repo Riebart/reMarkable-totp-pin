@@ -1,0 +1,12 @@
+[Unit]
+Description=TOTP PIN Watcher
+After=home.mount
+
+[Service]
+Type=simple
+ExecStart=/home/root/totp_pin.sh
+Restart=on-failure
+PIDFile=/tmp/totp_pin.pid
+
+[Install]
+WantedBy=multi-user.target
