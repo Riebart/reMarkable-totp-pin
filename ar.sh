@@ -33,7 +33,8 @@ do
         do
             if [ "$file_name" == "$inner_name" ]
             then
-                dd bs=1 count=$file_size 2>/dev/null
+                dd bs=1048576 count=$[1048576*(file_size/1048576)] 2>/dev/null
+                dd bs=$[file_size-1048576*(file_size/1048576)] count=1 2>/dev/null
                 exit
             fi
         done
